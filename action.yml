@@ -1,6 +1,6 @@
-name: 'Rsync Deployments Action'
-description: 'GitHub Action for deploying code via rsync over ssh'
-author: 'Burnett01'
+name: 'Rsync Deployments Action with ssh key and password'
+description: 'GitHub Action for deploying code via rsync over ssh to hosts that require both ssh keys and passwords'
+author: 'Kroominator'
 inputs:
   switches:
     description: 'The switches'
@@ -41,5 +41,5 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
 branding:
-  icon: 'send'  
+  icon: 'folder-plus'  
   color: 'gray-dark'
