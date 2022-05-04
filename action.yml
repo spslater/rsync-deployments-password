@@ -33,7 +33,7 @@ inputs:
     description: 'The remote key passphrase'
     required: false
     default: ''
-   remote_password:
+  remote_password:
     description: The remote password'
     required: false
     default: ''
