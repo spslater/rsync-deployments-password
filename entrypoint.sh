@@ -9,10 +9,10 @@ set -eu
 
 # Variables.
 SWITCHES="$INPUT_SWITCHES"
-RSH="ssh -o StrictHostKeyChecking=no -p $INPUT_REMOTE_PORT $INPUT_RSH"
+RSH="ssh -T -o Compression=no -x -p $INPUT_REMOTE_PORT $INPUT_RSH"
 LOCAL_PATH="$GITHUB_WORKSPACE/$INPUT_PATH"
 DSN="$INPUT_REMOTE_USER@$INPUT_REMOTE_HOST"
 
 # Deploy.
 
-sh -c "sshpass -p '$INPUT_REMOTE_PASSWORD' rsync $SWITCHES --progress -avz -e '$RSH' $LOCAL_PATH $DSN:$INPUT_REMOTE_PATH"
+sh -c "sshpass -p '$INPUT_REMOTE_PASSWORD' rsync -aHAXxv --numeric-ids --delete --progress -e '$RSH' $LOCAL_PATH $DSN:$INPUT_REMOTE_PATH"
