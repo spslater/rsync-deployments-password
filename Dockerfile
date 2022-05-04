@@ -1,4 +1,4 @@
-FROM drinternet/rsync:v1.4.0
+FROM ubuntu:20.04
 
 RUN apt-get update && apt-get install -y sshpass
 
