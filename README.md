@@ -1,4 +1,4 @@
-# rsync deployments
+# rsync deployments to simply.com or to systems that require both a ssh key AND a ssh password
 
 This GitHub Action deploys files in `GITHUB_WORKSPACE` to a remote folder via rsync over ssh. 
 
@@ -27,6 +27,8 @@ The base-image (drinternet/rsync) of this action is very small and is based on A
 - `remote_key`* - The remote ssh key
 
 - `remote_key_pass` - The remote ssh key passphrase (if any)
+
+- `remote_password` - The remote password 
 
 ``* = Required``
 
@@ -62,6 +64,7 @@ jobs:
         remote_path: /var/www/html/
         remote_host: example.com
         remote_user: debian
+        remote_password: correcthorsebatterystaple
         remote_key: ${{ secrets.DEPLOY_KEY }}
 ```
 
@@ -82,10 +85,11 @@ jobs:
         remote_host: example.com
         remote_port: 5555
         remote_user: debian
+        remote_password: correcthorsebatterystaple
         remote_key: ${{ secrets.DEPLOY_KEY }}
 ```
 
-For better **security**, I suggest you create additional secrets for remote_host, remote_port, remote_user and remote_path inputs.
+For better **security**, I suggest you create additional secrets for remote_host, remote_port, remote_user, remote_password and remote_path inputs.
 
 ```
 jobs:
@@ -102,6 +106,7 @@ jobs:
         remote_host: ${{ secrets.DEPLOY_HOST }}
         remote_port: ${{ secrets.DEPLOY_PORT }}
         remote_user: ${{ secrets.DEPLOY_USER }}
+        remote_password: ${{ secrets.DEPLOY_PASSWORD }}
         remote_key: ${{ secrets.DEPLOY_KEY }}
 ```
 
@@ -122,6 +127,7 @@ jobs:
         remote_host: ${{ secrets.DEPLOY_HOST }}
         remote_port: ${{ secrets.DEPLOY_PORT }}
         remote_user: ${{ secrets.DEPLOY_USER }}
+        remote_password: ${{ secrets.DEPLOY_PASSWORD }}
         remote_key: ${{ secrets.DEPLOY_KEY }}
         remote_key_pass: ${{ secrets.DEPLOY_KEY_PASS }}
 ```
