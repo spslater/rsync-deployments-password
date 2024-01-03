@@ -29,7 +29,6 @@ inputs:
   remote_password:
     description: The remote password'
     required: true
-    default: ''
 runs:
   using: 'docker'
   image: 'Dockerfile'
