@@ -1,6 +1,4 @@
-FROM drinternet/rsync:v1.4.0
-
-RUN apk add --update --no-cache openssh sshpass
+FROM ghcr.io/spslater/rsync-pass:1.0.0
 
 # Copy entrypoint
 COPY entrypoint.sh /entrypoint.sh

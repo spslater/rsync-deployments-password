@@ -1,6 +1,6 @@
-name: 'Rsync Deployments Action with ssh key and password'
-description: 'GitHub Action for deploying code via rsync over ssh to hosts that require both ssh keys and passwords'
-author: 'Kroominator'
+name: 'Rsync Deployments Action with password'
+description: 'GitHub Action for deploying code via rsync over ssh to hosts that require passwords'
+author: 'spslater'
 inputs:
   switches:
     description: 'The switches'
@@ -26,16 +26,9 @@ inputs:
   remote_user:
     description: 'The remote user'
     required: true
-  remote_key:
-    description: 'The remote key'
-    required: true
-  remote_key_pass:
-    description: 'The remote key passphrase'
-    required: false
-    default: ''
   remote_password:
     description: The remote password'
-    required: false
+    required: true
     default: ''
 runs:
   using: 'docker'
